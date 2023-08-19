@@ -28,10 +28,10 @@ jobs:
 
     strategy:
       matrix:
-        os: [ 'macOS-10.15' ]
+        os: [ 'macos-11' ]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Find changed recipes
         id: find
