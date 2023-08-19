@@ -1,3 +1,4 @@
+
 diff -Nru test_0.0/configure xx/configure
 --- test_0.0/configure	     1969-12-31 19:00:00.000000000 -0500
 +++ xx/configure	     2020-05-28 14:22:40.000000000 -0400
