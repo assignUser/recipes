@@ -1,6 +1,10 @@
 on:
   push:
+    paths:
+      - "recipes/*"
   pull_request:
+    paths:
+      - "recipes/*"
   workflow_dispatch:
     inputs:
       recipes:
