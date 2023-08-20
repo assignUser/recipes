@@ -36,9 +36,6 @@ jobs:
           fetch-depth: 0 # default is 1
           ref: "${{ github.ref }}"
       
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-
       - name: Find changed recipes
         id: find
         shell: bash
@@ -51,6 +48,7 @@ jobs:
           fi
 
           recipes=$(echo $files |
+            tr ' ' '\n' |
             grep 'recipes/[^\.]*$' |
             sed 's|recipes/\(.*\)|\1|g' |
             tr '\n' ' ')
