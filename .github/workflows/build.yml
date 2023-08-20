@@ -54,7 +54,7 @@ jobs:
             tr '\n' ' ')
 
           echo $recipes
-          if [ ! -z "$recipes"]; then
+          if [ ! -z "$recipes" ]; then
             echo "recipes=$recipes">> $GITHUB_OUTPUT
           fi
 
@@ -66,9 +66,9 @@ jobs:
           sudo mkdir /usr/local/.disabled
           sudo mv /usr/local/* /usr/local/.disabled/
 
-      - name: Install tools
+      - name: Build tools
         run: |
-          brew install pkgconfig
+          make -C build pkgconfig
 
       - name: Stubs
         run: |
