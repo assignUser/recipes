@@ -46,12 +46,15 @@ jobs:
             files=`git diff --name-only HEAD~1`
           fi
 
-          echo $files |
+          recipes=$(echo $files |
             grep 'recipes/[^\.]*$' |
             sed 's|recipes/\(.*\)|\1|g' |
-            tr '\n' ' ' |
-            cat <(echo -n "recipes=") - \
-            >> $GITHUB_OUTPUT
+            tr '\n' ' ')
+
+          echo $recipes
+          if [ ! -z "$recipes"]; then
+            echo "recipes=$recipes">> $GITHUB_OUTPUT
+          fi
 
       - name: Create Makefile
         run: Rscript scripts/mkmk.R
