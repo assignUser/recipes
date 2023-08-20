@@ -35,6 +35,9 @@ jobs:
         with:
           fetch-depth: 0 # default is 1
           ref: "${{ github.ref }}"
+      
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
 
       - name: Find changed recipes
         id: find
